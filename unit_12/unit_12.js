@@ -245,10 +245,10 @@ let a13 = [];
 
 function f13() {
 
-    for (let i = 0; i <= 8; i++) {
+    for (let i = 0; i < 8; i++) {
         a13[i] = [];
 
-        for (let k = 0; k <= 8; k++) {
+        for (let k = 0; k < 8; k++) {
 
             if (i % 2 != 0 && k % 2 != 0) {
                 a13[i][k] = 0;
