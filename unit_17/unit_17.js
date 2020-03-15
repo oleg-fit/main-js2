@@ -1,4 +1,4 @@
-let a1_res = [], a2_res = [], a3_res = [], a4_res = [], b1_res = [], b6_res = [], b7_res = [], b8_res = [], b9_num = [], b9_string = [], b10_res;
+let a1_res = [], a2_res = [], a3_res = [], a4_res = [], b1_res = [], b6_res = [], b7_res = [], b8_res = [], b9_num = [], b9_string = [], b10_res = [];
 
 // Task 1 ============================================
 /* <p> Дан массив a1 = [4, 5, 6, 7, 12, 34, 56, 78, 90, 11] - с помощью map переберите массив и создайте новый массив a1_res куда добавьте элементы данного массива умноженные на 2. Действия должны запускаться при вызове функции t1.</p>  */
@@ -22,8 +22,8 @@ document.querySelector('.b-1').onclick = t1;
 function t2() {
     a2= [2,3,4,5,10,11,12];
 
-    let a2_res = a2.map(function(item) {
-        return item ** 2;
+    let out = a2.map(function(item) {
+        a2_res.push(item ** 2);
     });
 
     document.querySelector('.out-2').innerHTML = a2_res;
@@ -38,8 +38,8 @@ document.querySelector('.b-2').onclick = t2;
 function t3() {
     a3 = [4,"3",6,7,"12",34,"56",78,90,11];
 
-    let a3_res = a3.map(function(item) {
-        return +item;
+    let out = a3.map(function(item) {
+        a3_res.push(+item);
     });
 
     document.querySelector('.out-3').innerHTML = a3_res;
@@ -54,10 +54,10 @@ document.querySelector('.b-3').onclick = t3;
 function t4() {
     a4 = [4,"3",6,7,"12",34,"56",78,90,11];
 
-    let a4_res = a4.map(function(item) {
+    let out = a4.map(function(item) {
 
         if (typeof(item) === 'number') {
-            return item;
+            a4_res.push(item);
         };
     });
 
@@ -73,10 +73,10 @@ document.querySelector('.b-4').onclick = t4;
 function t5() {
     b1 = [3, 14, 15, 92];
 
-    let b1_res = b1.filter(function(item) {
+    let out = b1.filter(function(item) {
 
         if (item % 2 === 0) {
-            return item;
+            b1_res.push(item);
         };
     });
 
@@ -95,10 +95,10 @@ document.querySelectorAll('.b-5').forEach(elem => {
 function t6() {
     b6 = [3, 14, 15, 92, "6", "5", "hello", 32];
 
-    let b6_res = b6.filter(function(item) {
+    let out = b6.filter(function(item) {
 
         if (typeof(item) === 'number') {
-            return item;
+            b6_res.push(item);
         };
     });
 
@@ -114,12 +114,12 @@ document.querySelector('.b-6').onclick = t6;
 function t7() {
     b7 = ["php-7", "html", "css", 92, "6", "5", "hello", 32];
 
-    let b7_res = b7.filter(function(item) {
+    let out = b7.filter(function(item) {
 
         if (typeof(item) === 'string') {
 
             if (item.length > 3) {
-                return item;
+                b7_res.push(item);
             };
         };
     });
@@ -135,10 +135,10 @@ document.querySelector('.b-7').onclick = t7;
 function t8() {
     b8 = [3, 14, 15, 92, "6", "5", "hello", 32];
 
-    let b8_res = b8.filter(function(item, index) {
+    let out = b8.filter(function(item, index) {
 
         if (item % 2 === 0) {
-            return index;
+            b8_res.push(index);
         };
     });
 
@@ -154,19 +154,15 @@ document.querySelector('.b-8').onclick = t8;
 function t9() {
     b9 = [3, "hello", 4, "world", 5, "hi"];
 
-    let b9_num = b9.filter(function(item) {
+    let out = b9.filter(function(item) {
 
         if (typeof(item) === 'number') {
 
-            return item;
-        };
-    });
+            b9_num.push(item);
+            
+        } else if (typeof(item) === 'string') {
 
-    let b9_string = b9.filter(function(item) {
-
-        if (typeof(item) === 'string') {
-
-            return item;
+            b9_string.push(item);
         };
     });
 
@@ -183,20 +179,18 @@ document.querySelector('.b-9').onclick = t9;
 function t10() {
     b10 = [ [1,2,3], [3,4,6], [4,5,7], [8,9,3]];
 
-    let b10_res = b10.filter(function(item) {
+    let out = b10.filter(function(item) {
 
         for (let i = 0; i < item.length; i++) {
 
             if (item[i] === 3) {
-                return item;
+                console.log(item);
+                b10_res.push(item);
             }
         }
     });
 
-    console.log(b10_res);
-
     document.querySelector('.out-10').innerHTML = b10_res;
-
 }
 
 document.querySelector('.b-10').onclick = t10;
