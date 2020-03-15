@@ -52,7 +52,7 @@ function f3() {
         "mix" : "mix"
     };
 
-    document.querySelector('.out-3').innerHTML = a3.odd;
+    document.querySelector('.out-3').innerHTML = a3.odd + ' ';
     return a3.odd;
 }
 
@@ -109,6 +109,7 @@ document.querySelector('.b-5').onclick = () => {
         "one" : 1,
         "two" : 2
     }
+
     f5(a5, '.out-5');
 }
 
@@ -144,15 +145,16 @@ let a7 = {
 function f7() {
     let out = document.querySelector('.out-7');
     let input7 = document.querySelector('.i-7');
-    let inputValue7 = input7.value;
+    let inputValue7 = +input7.value;
 
     for (let key in a7) {
-        if (key == inputValue7) {
+
+        if (a7[key] == inputValue7) {
             return out.innerHTML = 1;
-        } else {
-            return out.innerHTML = 0;
-        }
+        } 
     }
+
+    out.innerHTML = 0;
 
     // Второй способ
     // (inputValue7 in a7) ? out.innerHTML = 1 : out.innerHTML = 0;
@@ -174,15 +176,14 @@ function f8() {
     let inputValue8 = input8.value;
 
     for (let key in a8) {
+        
         if (key == inputValue8) {
             return out.innerHTML = a8[key];
-        } else {
-            return out.innerHTML = 0;
-        }
+        } 
     }
+
+    out.innerHTML = 0;
 }
-
-
 
 document.querySelector('.b-8').onclick = f8;
 
